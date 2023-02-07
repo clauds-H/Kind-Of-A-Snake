@@ -19,6 +19,7 @@ class Monster {
     constructor(posx, posy){
         this.posx = posx;
         this.posy = posy;
+        this.size = 10;
     }
     spawn(){
         ctx.fillStyle = "green";
