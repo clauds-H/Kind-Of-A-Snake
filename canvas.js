@@ -7,6 +7,5 @@ class Canvas{
         this.canvas.style.border = '1px solid red';
     }
     drawObjects(){
-        
     }
 }
