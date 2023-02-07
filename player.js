@@ -1,6 +1,5 @@
-class Player extends Canvas{
+class Player {
     constructor(x, y, width, height){
-        super();
          this.x = x;
          this.y = y;
          this.height = height;
@@ -8,23 +7,21 @@ class Player extends Canvas{
          
     }
     draw(){
-        this.ctx.fillStyle = "red";
-        this.ctx.fillRect(this.x, this.y, this.width, this.height);
+        ctx.fillStyle = "red";
+        ctx.fillRect(this.x, this.y, this.width, this.height);
       }
     clear(){
-        this.ctx.clearRect(this.x, this.y+10, this.width, this.height);
+        ctx.clearRect(this.x, this.y+10, this.width, this.height);
       }
 }
 
-class Monster extends Canvas{
+class Monster {
     constructor(posx, posy){
-        super();
         this.posx = posx;
         this.posy = posy;
-    
     }
     spawn(){
-        this.ctx.fillStyle = "green";
-        this.ctx.fillRect(this.posx, this.posy, 10, 10);
+        ctx.fillStyle = "green";
+        ctx.fillRect(this.posx, this.posy, this.size, this.size);
     }
 }
