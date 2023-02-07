@@ -4,14 +4,11 @@ class Player {
          this.y = y;
          this.height = height;
          this.width = width;
-         
+         this.currentPos = [x, y];
     }
     draw(){
         ctx.fillStyle = "red";
         ctx.fillRect(this.x, this.y, this.width, this.height);
-      }
-    clear(){
-        ctx.clearRect(this.x, this.y+10, this.width, this.height);
       }
 }
 

@@ -5,12 +5,14 @@ class Canvas{
         this.el.height = 200;
         this.el.width = 400;
 
-        
-    }
-    drawObjects(){
     }
 
     getCtx() {
         return this.ctx;
+    }
+
+
+    clearRect(x, y, w, h){
+        ctx.clearRect(x, y, w, h);
     }
 }
