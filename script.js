@@ -64,6 +64,10 @@ function reset(){
     canvas.clearRect(0, 0, canvas.el.width, canvas.el.height);
 }
 
+function arrayIn2Dim(arr, newArr){
+    return arr.filter(x => x[0]== newArr[0] && x[1]==newArr[1]).length>0;
+}
+
 setInterval(function(){
     //next pos
     player.update();

@@ -39,15 +39,22 @@ class Player {
         ctx.fillStyle = "red";
         ctx.fillRect(this.x, this.y, this.width, this.height);
       }
+
     updatePos(){
-        this.position.push([this.x, this.y]);
-        //!collision
-        if(!(this.x == monster.posx && this.y == monster.posy)){
-            this.delOldPos();
+        let arr = [this.x, this.y];
+        if(!arrayIn2Dim(this.position, arr)){
+            this.position.push([this.x, this.y]);
+            //!collision
+            if(!(this.x == monster.posx && this.y == monster.posy)){
+                this.delOldPos();
+            }else{
+                monster.generate();
+            }
         }else{
-            monster.generate();
+            reset();
         }
       }
+    
     delOldPos(){
         let del = this.position.shift();
         canvas.clearRect(del[0], del[1], canvas.gridSize, canvas.gridSize);
