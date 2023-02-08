@@ -3,7 +3,7 @@ var canvas = new Canvas();
 var ctx = canvas.getCtx();
 
 //red player
-let player = new Player(100, 100, 10, 10);
+let player = new Player(canvas.el.width/2, canvas.el.height/2, 10, 10);
 player.draw();
 
 //green Monster
@@ -67,7 +67,7 @@ function generateRandomPos(x){
 function reset(){
     canvas.clearRect(0, 0, canvas.el.width, canvas.el.height);
     score.resetScore();
-    player = new Player(100, 100, 10, 10);
+    player = new Player(canvas.el.width/2, canvas.el.height/2, 10, 10);
     player.draw();
     monster = new Monster(generateRandomPos(canvas.el.width), generateRandomPos(canvas.el.height));
     monster.spawn();
