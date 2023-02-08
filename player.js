@@ -7,7 +7,7 @@ class Player {
          this.position = [[x, y]];
          this.playerLength = this.position.length;
          this.directions = ['left', 'down', 'right', 'up'];
-         this.direction = this.directions[0];
+         this.direction = '';
     }
     switchDirection(newDirection){
         let newInd = this.directions.indexOf(newDirection);
@@ -49,6 +49,7 @@ class Player {
                 this.delOldPos();
             }else{
                 monster.generate();
+                score.updateScore();
             }
         }else{
             reset();
@@ -75,5 +76,21 @@ class Monster {
         this.posy = Math.floor(Math.random() * (canvas.el.height/10-canvas.getGridSize()))*10;
         this.posx = Math.floor(Math.random() * (canvas.el.width/10-canvas.getGridSize()))*10;
         this.spawn();
+    }
+}
+class Display{
+    constructor(){
+        this.score = 0;
+    }
+    updateScore(){
+        this.score++;
+        this.displayScore();
+    }
+    resetScore(){
+        this.score = 0;
+        this.displayScore();
+    }
+    displayScore(){
+        document.getElementById('score').textContent = this.score;
     }
 }

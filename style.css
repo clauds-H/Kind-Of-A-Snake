@@ -7,3 +7,10 @@ body {
     height: 200px;
     border: 1px solid red;
 }
+.container{
+
+}
+h3, p{
+  color: white;
+  font-family: 'Courier New', Courier, monospace;
+}
