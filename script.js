@@ -89,7 +89,7 @@ setInterval(function(){
         player.updatePos();
     }
     
-}, 200);
+}, 100);
 
 
 /*
