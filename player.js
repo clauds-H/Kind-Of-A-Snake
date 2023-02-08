@@ -16,7 +16,7 @@ class Monster {
     constructor(posx, posy){
         this.posx = posx;
         this.posy = posy;
-        this.size = 10;
+        this.size = canvas.getGridSize();
     }
     spawn(){
         ctx.fillStyle = "green";
