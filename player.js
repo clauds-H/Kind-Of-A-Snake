@@ -42,7 +42,7 @@ class Player {
     updatePos(){
         this.position.push([this.x, this.y]);
         //!collision
-        if(!(this.x == monster.posx) && !(this.y == monster.posy)){
+        if(!(this.x == monster.posx && this.y == monster.posy)){
             this.delOldPos();
         }
       }
