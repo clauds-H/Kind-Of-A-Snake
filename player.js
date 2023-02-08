@@ -44,6 +44,8 @@ class Player {
         //!collision
         if(!(this.x == monster.posx && this.y == monster.posy)){
             this.delOldPos();
+        }else{
+            monster.generate();
         }
       }
     delOldPos(){
@@ -61,5 +63,10 @@ class Monster {
     spawn(){
         ctx.fillStyle = "green";
         ctx.fillRect(this.posx, this.posy, this.size, this.size);
+    }
+    generate(){
+        this.posy = Math.floor(Math.random() * (canvas.el.height/10-canvas.getGridSize()))*10;
+        this.posx = Math.floor(Math.random() * (canvas.el.width/10-canvas.getGridSize()))*10;
+        this.spawn();
     }
 }
