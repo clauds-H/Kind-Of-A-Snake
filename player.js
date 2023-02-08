@@ -4,6 +4,8 @@ class Player {
          this.y = y;
          this.height = height;
          this.width = width;
+         this.position = [[x, y]];
+         this.playerLength = this.position.length;
          this.directions = ['left', 'down', 'right', 'up'];
          this.direction = this.directions[0];
     }
@@ -37,6 +39,17 @@ class Player {
         ctx.fillStyle = "red";
         ctx.fillRect(this.x, this.y, this.width, this.height);
       }
+    updatePos(){
+        this.position.push([this.x, this.y]);
+        //!collision
+        if(!(this.x == monster.posx) && !(this.y == monster.posy)){
+            this.delOldPos();
+        }
+      }
+    delOldPos(){
+        let del = this.position.shift();
+        canvas.clearRect(del[0], del[1], canvas.gridSize, canvas.gridSize);
+    }
 }
 
 class Monster {

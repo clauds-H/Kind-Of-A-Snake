@@ -70,6 +70,7 @@ setInterval(function(){
         reset();
     }else{
         player.draw();
+        player.updatePos();
     }
     
 }, 500);
