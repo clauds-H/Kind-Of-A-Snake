@@ -2,6 +2,7 @@
 var canvas = new Canvas();
 var ctx = canvas.getCtx();
 
+//red player
 let player = new Player(100, 100, 10, 10);
 player.draw();
 
@@ -55,9 +56,6 @@ document.onkeydown = function(event) {
   }
 
 function generateRandomPos(x){
-    //let yPos = Math.floor(Math.random() * (canvas.el.height/10-canvas.getGridSize()))*10;
-    //let xPos = Math.floor(Math.random() * (canvas.el.width/10-canvas.getGridSize()))*10;
-    //console.log('pos monster: ' + yPos, xPos);
     let pos = Math.floor(Math.random() * (x/10-canvas.getGridSize()))*10;
     return pos;
   }
@@ -70,14 +68,14 @@ setInterval(function(){
     //next pos
     player.update();
     //border-check
-    if(player.x >= canvas.el.width || player.x <= 0 || player.y <= 0 || player.y >= canvas.el.height){
+    if(player.x >= canvas.el.width || player.x < 0 || player.y < 0 || player.y >= canvas.el.height){
         reset();
     }else{
         player.draw();
         player.updatePos();
     }
     
-}, 500);
+}, 200);
 
 //deletion
 //ctx.clearRect(monster.posx, monster.posy, monster.size, monster.size);
