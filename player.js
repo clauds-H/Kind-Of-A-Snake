@@ -39,12 +39,12 @@ class Player {
         ctx.fillStyle = "red";
         ctx.fillRect(this.x, this.y, this.width, this.height);
       }
-
     updatePos(){
         let arr = [this.x, this.y];
+        //no collision with self
         if(!arrayIn2Dim(this.position, arr)){
             this.position.push([this.x, this.y]);
-            //!collision
+            //!collision with border
             if(!(this.x == monster.posx && this.y == monster.posy)){
                 this.delOldPos();
             }else{
@@ -55,7 +55,6 @@ class Player {
             reset();
         }
       }
-    
     delOldPos(){
         let del = this.position.shift();
         canvas.clearRect(del[0], del[1], canvas.gridSize, canvas.gridSize);

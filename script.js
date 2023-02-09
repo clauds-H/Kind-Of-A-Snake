@@ -94,5 +94,8 @@ setInterval(function(){
 
 /*
 TODO:
+  another player -> erstmal randomisierte (KI)
+  no border on sides -> player continues moving when hitting borders
 
+  
 */
