@@ -21,15 +21,19 @@ class Player {
         switch(player.direction){
             case 'up':
                 player.y-=10;
+                this.borderCheck('y');
                 break;
             case 'down':
                 player.y+=10;
+                this.borderCheck('y');
                 break;
             case 'left':
                 player.x-=10;
+                this.borderCheck('x');
                 break;
             case 'right':
                 player.x+=10;
+                this.borderCheck('x');
                 break;
             default:
                 throw new Error('direction is: ' + direction);
@@ -39,6 +43,26 @@ class Player {
         ctx.fillStyle = "red";
         ctx.fillRect(this.x, this.y, this.width, this.height);
       }
+    borderCheck(direction){
+        if(direction == 'x'){
+            if(player.x<0){
+                player.x = canvas.el.width-Math.abs(player.x);
+            }
+            if(player.x >= canvas.el.width){
+                player.x = 0;
+            } 
+        }
+        else{
+            if(player.y<0){
+                player.y = canvas.el.height-Math.abs(player.y);
+            }
+            if(player.y >= canvas.el.height){
+                player.y = 0;
+            } 
+        }
+    }
+
+    
     updatePos(){
         let arr = [this.x, this.y];
         //no collision with self

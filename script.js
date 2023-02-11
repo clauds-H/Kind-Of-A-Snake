@@ -79,24 +79,18 @@ function arrayIn2Dim(arr, newArr){
 
 ////////////////////////////////////////
 setInterval(function(){
-    //next pos
-    player.update();
-    //border-check
-    if(player.x >= canvas.el.width || player.x < 0 || player.y < 0 || player.y >= canvas.el.height){
-      //translate koords -> new side
-        reset();
-    }else{
-        player.draw();
-        player.updatePos();
-    }
-    
+    //set new pos in class
+    player.update();    
+    player.draw();
+    //update snake array
+    player.updatePos();
 }, 100);
 
 
 /*
 TODO:
   another player -> erstmal randomisierte (KI)
-  no border on sides -> player continues moving when hitting borders
+  BUG: no "down" as start
   monster does not spawn in player player.positon (array)
   
 */
