@@ -44,7 +44,7 @@ class Player {
         //no collision with self
         if(!arrayIn2Dim(this.position, arr)){
             this.position.push([this.x, this.y]);
-            //!collision with border
+            //no collision with monster
             if(!(this.x == monster.posx && this.y == monster.posy)){
                 this.delOldPos();
             }else{
