@@ -10,12 +10,17 @@ class Player {
          this.direction = '';
     }
     switchDirection(newDirection){
-        let newInd = this.directions.indexOf(newDirection);
-        let oldInd = this.directions.indexOf(this.direction);
-        let diff = Math.abs(oldInd-newInd);
-        if(diff !== 2){
+        if(this.direction == ''){
             this.direction = newDirection;
+        }else{
+            let newInd = this.directions.indexOf(newDirection);
+            let oldInd = this.directions.indexOf(this.direction);
+            let diff = Math.abs(oldInd-newInd);
+            if(diff !== 2){
+                this.direction = newDirection;
+            }
         }
+
     }
     update(){
         switch(player.direction){
