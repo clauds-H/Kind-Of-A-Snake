@@ -10,8 +10,8 @@ class Player {
          this.direction = '';
     }
     switchDirection(newDirection){
-        if(this.direction == ''){
-            this.direction = newDirection;
+        if(player.direction == ''){
+            player.direction = newDirection;
         }else{
             let newInd = this.directions.indexOf(newDirection);
             let oldInd = this.directions.indexOf(this.direction);
@@ -20,7 +20,6 @@ class Player {
                 this.direction = newDirection;
             }
         }
-
     }
     update(){
         switch(player.direction){
@@ -47,7 +46,7 @@ class Player {
     draw(){
         ctx.fillStyle = "red";
         ctx.fillRect(this.x, this.y, this.width, this.height);
-      }
+    }
     borderCheck(direction){
         if(direction == 'x'){
             if(player.x<0){
@@ -108,6 +107,18 @@ class Monster {
         this.posy = Math.floor(Math.random() * (canvas.el.height/10-canvas.getGridSize()))*10;
         this.posx = Math.floor(Math.random() * (canvas.el.width/10-canvas.getGridSize()))*10;
         this.spawn();
+    }
+}
+class customFill{
+    constructor(){
+        this.startX = canvas.el.width/3;
+        this.startY = canvas.el.height/2;
+        this.size = 10;
+    }
+    draw(){
+        ctx.font = "48px Courier New";
+        ctx.fillStyle = "blue";
+        ctx.fillText("Loser", this.startX, this.startY);
     }
 }
 class Display{

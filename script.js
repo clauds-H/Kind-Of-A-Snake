@@ -1,3 +1,4 @@
+var pause = false;
 //program
 var canvas = new Canvas();
 var ctx = canvas.getCtx();
@@ -64,13 +65,27 @@ function generateRandomPos(x){
     return pos;
   }
 
+function gameOver(){
+  pause = true;
+
+  canvas.clearRect(0, 0, canvas.el.width, canvas.el.height);
+  score.resetScore();
+
+  let display = new customFill();
+  display.draw();
+}
+
 function reset(){
+  gameOver();
+  setTimeout(function(){
     canvas.clearRect(0, 0, canvas.el.width, canvas.el.height);
-    score.resetScore();
     player = new Player(canvas.el.width/2, canvas.el.height/2, 10, 10);
     player.draw();
     monster = new Monster(generateRandomPos(canvas.el.width), generateRandomPos(canvas.el.height));
     monster.spawn();
+    pause = false;
+  }, 3000);
+  
 }
 
 function arrayIn2Dim(arr, newArr){
@@ -79,11 +94,13 @@ function arrayIn2Dim(arr, newArr){
 
 ////////////////////////////////////////
 setInterval(function(){
+  if(!pause){
     //set new pos in class
     player.update();    
     player.draw();
     //update snake array
     player.updatePos();
+  }
 }, 100);
 
 
