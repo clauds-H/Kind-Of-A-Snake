@@ -117,7 +117,7 @@ class customFill{
     }
     draw(){
         ctx.font = "48px Courier New";
-        ctx.fillStyle = "blue";
+        ctx.fillStyle = "yellow";
         ctx.fillText("Loser", this.startX, this.startY);
     }
 }
