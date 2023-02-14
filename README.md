@@ -1,7 +1,7 @@
 # Kind-Of-A-Snake
 
 
-<h1>learning environment</h1>
+<h3>learning environment</h3>
 > canvas, classes
 
 just me learning the basics
