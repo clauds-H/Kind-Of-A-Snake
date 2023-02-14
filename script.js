@@ -89,8 +89,7 @@ setInterval(function(){
 
 /*
 TODO:
-  another player -> erstmal randomisierte (KI)
-  BUG: no "down" as start
-  monster does not spawn in player player.positon (array)
-  
+  gameover -> stand still, blink 3 times then reset
+
+  Q2: another player -> erstmal randomisierte (KI)
 */

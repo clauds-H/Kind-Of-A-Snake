@@ -65,9 +65,7 @@ class Player {
                 player.y = 0;
             } 
         }
-    }
-
-    
+    } 
     updatePos(){
         let arr = [this.x, this.y];
         //no collision with self
@@ -97,8 +95,14 @@ class Monster {
         this.size = canvas.getGridSize();
     }
     spawn(){
-        ctx.fillStyle = "green";
-        ctx.fillRect(this.posx, this.posy, this.size, this.size);
+        //does not spawn inside player
+        let temp = [this.posx, this.posy];
+        if(!arrayIn2Dim(player.position, temp)){
+            ctx.fillStyle = "green";
+            ctx.fillRect(this.posx, this.posy, this.size, this.size);
+        }else{
+            this.generate();
+        }
     }
     generate(){
         this.posy = Math.floor(Math.random() * (canvas.el.height/10-canvas.getGridSize()))*10;
